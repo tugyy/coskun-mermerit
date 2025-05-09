@@ -14,9 +14,9 @@ const LanguageOptions = [
 export default function ChangeLanguage() {
 //   const { t, i18n } = useTranslation();
 
-  const changeLanguage = (lang: string) => {
+  // const changeLanguage = () => {
     // i18n.changeLanguage(lang);
-  };
+  // };
 
   return (
     <Input.Wrapper
@@ -28,12 +28,12 @@ export default function ChangeLanguage() {
         data={LanguageOptions}
         // value={i18n.language ?? "tr"}
         value={"tr"}
-        onChange={(value) =>
-          changeLanguage(
-            LanguageOptions.find((c) => c.value === value)?.value ||
-              LanguageOptions[0].value
-          )
-        }
+        // onChange={(value) =>
+          // changeLanguage(
+          //   LanguageOptions.find((c) => c.value === value)?.value ||
+          //     LanguageOptions[0].value
+          // )
+        // }
         style={{ flex: 1, width: "100%" }}
         renderOption={(item) => (
           <SelectItem value={item.option.value} label={item.option.label} />

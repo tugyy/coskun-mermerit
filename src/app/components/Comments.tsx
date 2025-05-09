@@ -11,7 +11,7 @@ const ReviewCard = ({
   createdAt,
   author,
   text,
-  rating
+  rating,
 }: {
   color: string;
   createdAt: string;
@@ -21,7 +21,7 @@ const ReviewCard = ({
 }) => {
   // İsim ve soyadından sadece ilk iki kelimenin baş harflerini al
   const getInitials = (name: string) => {
-    const nameParts = name.split(" ").slice(0, 2);  // Sadece ilk iki kelimeyi al
+    const nameParts = name.split(" ").slice(0, 2); // Sadece ilk iki kelimeyi al
     const initials = nameParts.map((part) => part.charAt(0).toUpperCase());
     return initials.join(""); // Baş harfleri birleştir
   };
@@ -33,10 +33,14 @@ const ReviewCard = ({
     return (
       <>
         {[...Array(fullStars)].map((_, index) => (
-          <span key={`full-${index}`} className="text-yellow-500">★</span> // Dolu yıldız
+          <span key={`full-${index}`} className="text-yellow-500">
+            ★
+          </span> // Dolu yıldız
         ))}
         {[...Array(emptyStars)].map((_, index) => (
-          <span key={`empty-${index}`} className="text-gray-400">★</span> // Boş yıldız
+          <span key={`empty-${index}`} className="text-gray-400">
+            ★
+          </span> // Boş yıldız
         ))}
       </>
     );
@@ -57,18 +61,18 @@ const ReviewCard = ({
         <div
           style={{
             backgroundColor: color, // color prop'unu arka plan rengi olarak kullanıyoruz
-            width: "30px",  // Yuvarlağın genişliği
+            width: "30px", // Yuvarlağın genişliği
             height: "30px", // Yuvarlağın yüksekliği
             borderRadius: "50%", // Yuvarlak şekil
-            display: "flex",  // İçeriği ortalamak için flex kullanıyoruz
-            alignItems: "center",  // Dikeyde ortalama
-            justifyContent: "center",  // Yatayda ortalama
+            display: "flex", // İçeriği ortalamak için flex kullanıyoruz
+            alignItems: "center", // Dikeyde ortalama
+            justifyContent: "center", // Yatayda ortalama
             color: "white", // Baş harflerinin rengini beyaz yapıyoruz
             fontWeight: "600", // Baş harflerini kalın yapmak için
-            fontSize: "14px",  // Baş harflerinin boyutu
+            fontSize: "14px", // Baş harflerinin boyutu
           }}
         >
-          {getInitials(author)}  {/* İsim ve soyisim baş harflerini göster */}
+          {getInitials(author)} {/* İsim ve soyisim baş harflerini göster */}
         </div>
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium">{author}</figcaption>
@@ -90,17 +94,16 @@ const ReviewCard = ({
 
       <div className="mt-2 flex justify-end items-center gap-1">
         {renderStars(effectiveRating)} {/* Yıldızları göster */}
-        <span className="text-xs text-gray-600">({effectiveRating.toFixed(1)})</span> {/* Rating sayısal değeri */}
+        <span className="text-xs text-gray-600">
+          ({effectiveRating.toFixed(1)})
+        </span>{" "}
+        {/* Rating sayısal değeri */}
       </div>
     </figure>
   );
 };
 
-
-
-export function MarqueeDemo({
-  textRef,
-}: {
+export function MarqueeDemo({}: {
   textRef?: RefObject<HTMLDivElement | null>;
 }) {
   const { data } = useQuery({
