@@ -1,0 +1,89 @@
+.hero {
+  position: relative;
+  background-image: url(/homepage_wallpaper.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.container {
+  height: 700px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  padding-bottom: calc(var(--mantine-spacing-xl) * 6);
+  z-index: 1;
+  position: relative;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    height: 500px;
+    padding-bottom: calc(var(--mantine-spacing-xl) * 3);
+  }
+}
+
+.title {
+  color: var(--mantine-color-white);
+  margin: 0;
+  font-size: 60px;
+  font-weight: 900;
+  line-height: 1.1;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: 40px;
+    line-height: 1.2;
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    font-size: 28px;
+    line-height: 1.3;
+  }
+}
+
+.description {
+  color: var(--mantine-color-white);
+  max-width: 600px;
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    max-width: 100%;
+    font-size: var(--mantine-font-size-sm);
+  }
+}
+
+.control {
+  margin-top: calc(var(--mantine-spacing-xl) * 1.5);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    width: 50%;
+  }
+}
+
+.customShape {
+  position: absolute;
+  bottom: -1;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.customShape svg {
+  display: block;
+  position: relative;
+  width: calc(113% + 1.3px);
+  height: 70px;
+
+  @media (max-width: 768px) {
+    height: 35px;
+  }
+}
+
+.customShape .shapeFill {
+  @mixin dark {
+    fill: #242424;
+  }
+
+  @mixin light {
+    fill: #ffffff;
+  }
+}
