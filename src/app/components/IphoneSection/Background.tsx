@@ -7,10 +7,15 @@ import { useMediaQuery } from "@mantine/hooks";
 const BALL_RADIUS = 50;
 const BALL_DIAMETER = BALL_RADIUS * 2;
 
-const getRandomPosition = () => ({
-  x: Math.random() * (window.innerWidth - BALL_DIAMETER),
-  y: Math.random() * (window.innerHeight - BALL_DIAMETER),
-});
+const getRandomPosition = () => {
+  if (typeof window !== "undefined") {
+    return {
+      x: Math.random() * (window.innerWidth - BALL_DIAMETER),
+      y: Math.random() * (window.innerHeight - BALL_DIAMETER),
+    };
+  }
+  return { x: 0, y: 0 }; // Fallback değer
+};
 
 const getRandomVelocity = () => ({
   vx: (Math.random() - 0.5) * 3,
@@ -34,7 +39,7 @@ const Background = () => {
   );
 
   useEffect(() => {
-    if (isMobile !== undefined) {
+    if (typeof window !== "undefined" && isMobile !== undefined) {
       const updatePositions = () => {
         setBalls((prevBalls) =>
           prevBalls.map((ball) => {
